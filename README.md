@@ -25,11 +25,20 @@ The visitors will be able to :
 To connect : 
 To access to the application, a login and password combinaison is asked. Here is the list by default of login/password with the roles associated to them:
 
-ROLE      LOGIN       PASSWORD
-Admin	    admin	      adminpassword
-Student	  student1	  studentun
-Student	  student2	  studentdeux
-Visitor	  visitor1	  visitorun
-Visitor	  visitor2	  visitordeux
-
+      - Admin: 
+            - Login : admin
+            - Password ! adminpassword
+      - Student:
+            - Login : student1
+            - Password : studentun
+            
+            - Login : student2
+            - Password : studentdeux
+      - Visitor:
+            - Login : visitor1
+            - Visitor : visitorun
+            
+            - Login : visitor2
+            - Password : visitordeux
+      
 You can see some snapshots of the application in the "Snapshots" folder
