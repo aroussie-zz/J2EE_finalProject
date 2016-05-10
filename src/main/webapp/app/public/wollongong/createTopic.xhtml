@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../../templates/cityTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <ui:define name="title">
+        Create a topic
+    </ui:define>
+
+    <ui:define name="Link to the Topic page">
+        <h:link outcome="/app/public/wollongong/index.xhtml" value="Wollongong"/>
+    </ui:define>
+
+    <ui:define name="Link to create a Topic">
+        <h:link outcome="createTopic.xhtml" value="Create a Topic" rendered="#{loginBean.isStudent()}"/>
+    </ui:define>
+
+    <ui:define name="Link to the FAQ page">
+        <h:link outcome="/app/public/home.xhtml" value="FAQ"/>
+    </ui:define>
+
+    <ui:define name="Name of the city">
+        This is <strong>Wollongong</strong>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="container" >
+            <h:form class="form-horizontal">
+                <div class="form-group">
+                    <h:outputLabel for="title" class="col-md-2 control-label">Title*</h:outputLabel>
+                    <div class="col-md-6">
+                        <h:inputText class="form-control" id="title" value="#{wollongongController.topic.title}" maxlength="50"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="content" class="col-md-2 control-label">Content</h:outputLabel>
+                    <div class="col-md-6">
+
+
+                        <pe:ckEditor id="content" value="#{wollongongController.topic.content}" toolbar="[
+                                     { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+                                     { name: 'insert', items: ['Table', 'SpecialChar' ] },
+                                     { name: 'tools', items: [ 'Maximize' ] },
+                                     '/',
+                                     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ] },
+                                     { name: 'paragraph', groups: [ 'list', 'indent'], items: [ 'NumberedList', 'BulletedList' ] },
+                                     { name: 'colors', items : [ 'TextColor','BGColor' ] },
+                                     { name: 'styles', items: [ 'Styles', 'Format' ] },
+
+                                     ];">
+                        </pe:ckEditor>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-offset-2 col-md-6">
+                        <h:commandButton  class="btn btn-primary" value="Save" action="#{wollongongController.createTopic()}" /> 
+                        <h:link outcome="/app/public/plymouth/index.xhtml" value="Cancel" class="btn btn-default" style="background-color: red;font-weight: bold; color: white" type="button"/>
+                    </div>
+                </div>    
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

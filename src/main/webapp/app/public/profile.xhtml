@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../templates/indexTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="title">
+        See my profile
+    </ui:define>
+
+    <ui:define name="content">
+        <h:body>
+            <div class="container">
+                <h3>Personal information</h3>
+                <h:form class="form-horizontal" role="form" >
+                    <div class="form-group">
+                        <h:outputLabel class="col-lg-3 control-label">Login</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="loginVisitor" value="#{visitorController.visitor.user.login}" rendered="#{loginBean.isVisitor() or loginBean.isAdmin()}"/>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <h:outputLabel  class="col-lg-3 control-label">Last Name</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="nameVisitor" value="#{visitorController.visitor.name}" rendered="#{loginBean.isVisitor() or loginBean.isAdmin()}" />
+                        </div>
+                    </div>  
+
+                    <div class="form-group">
+                        <h:outputLabel class="col-lg-3 control-label">First Name</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="firstNameVisitor" value="#{visitorController.visitor.firstName}" rendered="#{loginBean.isVisitor() or loginBean.isAdmin()}" />
+                        </div>
+                    </div>  
+
+                    <div class="form-group">
+                        <h:outputLabel class="col-lg-3 control-label">Mail</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="mailVisitor" value="#{visitorController.visitor.mail}" rendered="#{loginBean.isVisitor() or loginBean.isAdmin()}"/>
+                        </div>
+                    </div>  
+
+
+
+
+                </h:form>
+            </div>
+
+
+        </h:body>
+    </ui:define>
+
+</ui:composition>

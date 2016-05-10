@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <h:outputStylesheet library="webjars/bootstrap/3.3.5/css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="navbar-static-top.css" />
+
+    </h:head>
+    <h:body>
+        <!-- Static navbar -->
+
+
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-nav">
+                    <h:link outcome="/app/public/home" value="Study Abroad" class="navbar-brand"/>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">See a City <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><h:link outcome="/app/public/chicago/index.xhtml" value="Chicago"/></li>
+                                <li><h:link outcome="/app/public/plymouth/index.xhtml " value="Plymouth"/></li>
+                                <li><h:link outcome="/app/public/hong-kong/index.xhtml " value="Hong-Kong"/></li>
+                                <li><h:link outcome="/app/public/sherbrooke/index.xhtml " value="Sherbrooke"/></li>
+                                <li><h:link outcome="/app/public/wollongong/index.xhtml " value="Wollongong"/></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown" >
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Find someone <span class="caret"></span></a>
+                            <ul class="dropdown-menu" >
+                                <li><h:link value="Find a Student" outcome="/app/admin/displayStudents" rendered="#{loginBean.isAdmin()}"/> </li>
+                                <li><h:link value="Find a Visitor" outcome="/app/admin/displayVisitors" rendered="#{loginBean.isAdmin()}"/> </li>
+                                <li><h:link value="Find a Student" outcome="/app/public/findStudent" rendered="#{loginBean.isStudent() or loginBean.isVisitor()}"/> </li>
+                                <li><h:link value="Find a Visitor" outcome="/app/public/findVisitor" rendered="#{loginBean.isStudent() or loginBean.isVisitor()}"/> </li>
+                            </ul>
+                        </li>
+                        <!-- Links only available for the admin -->
+                        <li class="active"><h:link value="Create Student" outcome="/app/admin/createStudent"  rendered="#{loginBean.isAdmin()}" />  </li>
+                        <li class="active"><h:link value="Create Visitor" outcome="/app/admin/createVisitor" rendered="#{loginBean.isAdmin()}" />  </li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <h:form>
+                                <h:commandLink action="#{visitorController.seeMyProfile()}" value="My Profile" rendered="#{loginBean.isVisitor()}" style="position: relative;
+                                               display: block; margin: 18% 10% 0% 15% ;text-decoration: none;color: #777" />
+                            </h:form>
+                        </li>
+                        <li>
+                            <h:form>
+                                <h:commandLink action="#{studentController.seeMyProfile()}" value="My Profile" rendered="#{loginBean.isStudent()}" style="position: relative;
+                                               display: block; margin: 18% 10% 0% 15% ;text-decoration: none;color: #777" />                                 
+                            </h:form>
+                        </li>
+                        <li><h:form><h:commandLink action="#{loginBean.logout()}" value="Logout" style="position: relative;
+                                                   display: block; margin: 26% 10% 0% 15% ;text-decoration: none;color: #777"  /></h:form></li>
+                        <li><a>Connected as  <strong>#{loginBean.userGroup}</strong></a></li>
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <h:outputScript library="webjars/bootstrap/3.3.5/js" name="bootstrap.min.js"/>
+    </h:body>
+</html>
