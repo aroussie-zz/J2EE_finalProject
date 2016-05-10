@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../templates/indexTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
+
+    <ui:define name="title">
+        Find a Student
+    </ui:define>
+
+    <ui:define name="content">
+        <h:head>
+            <link type="text/css" rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />        
+        </h:head>
+        <h:body>
+            <div class="container" style="margin-top: 2%;">
+                <h:form id="form" >
+
+                    <p:dataTable class="table table-hover table-striped" value="#{lazyView.lazyModelStudent}" var="student" 
+                                 emptyMessage="No student found with given criteria" paginator="true" rows="5" 
+                                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                 rowsPerPageTemplate="5,10,15" lazy="true">
+
+
+                        <p:column headerText="Name" sortBy="#{student.name}" filterBy="#{student.name}">
+                            <h:outputText value="#{student.name}" />
+                        </p:column>
+                        <p:column headerText="FirstName" sortBy="#{student.firstName}" filterBy="#{student.firstName}">
+                            <h:outputText value="#{student.firstName}" />
+                        </p:column>
+                        <p:column headerText="Mail" sortBy="#{student.mail}" filterBy="#{student.mail}">
+                            <h:outputText value="#{student.mail}" />
+                        </p:column>
+                        <p:column headerText="City" sortBy="#{student.city}" filterBy="#{student.city}">
+                            <h:outputText value="#{student.city.name}" />
+                        </p:column>
+                        <p:column headerText="Graduate" sortBy="#{student.graduate}" filterBy="#{student.graduate}">
+                            <h:outputText value="#{student.graduate}" />
+                        </p:column>
+                        <p:column headerText="Country of work" sortBy="#{student.countryOfWork}" filterBy="#{student.countryOfWork}">
+                            <h:outputText value="#{student.countryOfWork}" />
+                        </p:column>
+                        <p:column headerText="Company" sortBy="#{student.company}" filterBy="#{student.company}">
+                            <h:outputText value="#{student.company}" />
+                        </p:column>
+                        <p:column headerText="Job" sortBy="#{student.job}" filterBy="#{student.job}">
+                            <h:outputText value="#{student.job}" />
+                        </p:column>
+
+
+                    </p:dataTable>
+                </h:form>  
+            </div>
+            <h:outputScript library="webjars/bootstrap/3.3.5/js" name="bootstrap.min.js"/>
+
+        </h:body>
+    </ui:define>
+
+</ui:composition>

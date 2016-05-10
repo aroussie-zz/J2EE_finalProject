@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../templates/indexTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="title">
+        Home
+    </ui:define>
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <h:outputStylesheet library="webjars/bootstrap/3.3.5/css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="carousel.css" />
+
+    </h:head>
+
+    <ui:define name="content">
+
+        <!-- Carousel
+ ================================================== -->
+        <h:body>
+            <div class="container">
+                <section class="block">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">          
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active ">
+                                <h:graphicImage value="/resources/pictures/chicago.jpg" class="first-slide" alt="Chicago"  />
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>Chicago in USA</h1>
+                                        <p><h:link outcome="/app/public/chicago/index.xhtml" value="GO" class="btn btn-lg btn-primary" role="button"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item ">
+                                <h:graphicImage value="/resources/pictures/hong-kong.jpg" class="first-slide" alt="Hong-Kong" />
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>Hong-Kong in China</h1>
+                                        <p><h:link outcome="/app/public/hong-kong/index.xhtml" value="GO" class="btn btn-lg btn-primary" role="button"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h:graphicImage value="/resources/pictures/plymouth.jpg" class="first-slide" alt="Plymouth" />
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>Plymouth in England</h1>
+                                        <p><h:link outcome="/app/public/plymouth/index.xhtml" value="GO" class="btn btn-lg btn-primary" role="button"/></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <h:graphicImage value="/resources/pictures/sherbrooke.jpg" class="first-slide" alt="Sherbrooke" />
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>Sherbrooke in Canada</h1>
+                                        <p><h:link outcome="/app/public/sherbrooke/index.xhtml" value="GO" class="btn btn-lg btn-primary" role="button"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h:graphicImage value="/resources/pictures/wollongong.jpg" class="first-slide" alt="Wollongong" />
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>Wollongong in Australia</h1>
+                                        <p><h:link outcome="/app/public/wollongong/index.xhtml" value="GO" class="btn btn-lg btn-primary" role="button"/></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">   </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">  </a>
+                    </div>
+                    <!-- /.carousel -->
+                </section>
+
+                <div class="container marketing">
+
+                    <!-- START THE FEATURETTES -->
+
+                    <hr class="featurette-divider">
+
+                        <div class="row featurette">
+                            <div class="col-md-6">
+                                <h2 class="featurette-heading">Topics for each city.</h2>
+                                <p class="lead">For each city you will find topics written by students who are/were in those schools.
+                                    Find all the information and good advice for get prepared, and discover the way of life in those cities</p>
+
+                            </div>
+                            <div class="col-md-4">
+                                <h:graphicImage value="/resources/pictures/post.jpg" class="featurette-image img-responsive center-block" alt="post"  />
+                            </div>
+                        </div>
+                    </hr>
+
+                    <hr class="featurette-divider">
+
+                        <div class="row featurette">
+                            <div class="col-md-7 col-md-push-5">
+                                <h2 class="featurette-heading">Questions ? worries ? <span class="text-muted">Go into the FAQ </span></h2>
+                                <p class="lead">If you have any question don't hesitate to submit it into the FAQ. There should be someone able to answer you :)</p>
+                            </div>
+                            <div class="col-md-5 col-md-pull-7">
+                                <h:graphicImage value="/resources/pictures/faq.jpg" class="featurette-image img-responsive center-block" alt="post"  />
+                            </div>
+                        </div>
+                    </hr>
+
+
+
+                </div>
+
+            </div>
+
+        </h:body>
+
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title> <ui:insert name="title"/> </title>
+
+        <h:outputStylesheet library="webjars/bootstrap/3.3.5/css" name="bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />        
+        <h:outputStylesheet library="css" name="navbar-static-top.css" />
+
+
+    </h:head>
+    <h:body>
+
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-nav">
+                    <h:link outcome="/app/public/home" value="Study Abroad" class="navbar-brand"/>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">See a City <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><h:link outcome="/app/public/chicago/index.xhtml" value="Chicago"/></li>
+                                <li><h:link outcome="/app/public/plymouth/index.xhtml" value="Plymouth"/></li>
+                                <li><h:link outcome="/app/public/hong-kong/index.xhtml" value="Hong-Kong"/></li>
+                                <li><h:link outcome="/app/public/sherbrooke/index.xhtml" value="Sherbrooke"/></li>
+                                <li><h:link outcome="/app/public/wollongong/index.xhtml" value="Wollongong"/></li>                                
+                            </ul>
+                        </li>
+
+
+
+                        <li class="active">  <ui:insert name="Link to the Topic page"></ui:insert> </li>
+                        <li class="active">  <ui:insert name="Link to create a Topic"></ui:insert> </li>
+                        <li class="active">  <ui:insert name="Link to the FAQ page"></ui:insert> </li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><h:form><h:commandLink action="#{loginBean.logout()}" value="Logout" style="position: relative;
+                                                   display: block; margin: 26% 10% 0% 15% ;text-decoration: none;color: #777"  /></h:form></li>
+                        <li><a><ui:insert name="Name of the city"> Name of the city will be here</ui:insert></a></li>
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+
+        <ui:insert name="content">Content will be here</ui:insert>    
+
+        <!-- FOOTER -->
+        <footer id="footer" style="position:absolute;bottom: 0px;">
+            <div class="container">
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p style="text-align: center"> ©2015 Made by Alexandre Roussière, student at the Illinois Institute of technology in Chicago</p>
+            </div>
+        </footer>    
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <h:outputScript library="webjars/bootstrap/3.3.5/js" name="bootstrap.min.js"/>
+    </h:body>
+</html>

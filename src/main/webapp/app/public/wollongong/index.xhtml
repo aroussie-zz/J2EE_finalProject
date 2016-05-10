@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../../templates/cityTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <ui:define name="title">
+        Wollongong
+    </ui:define>
+
+    <ui:define name="Link to the Topic page">
+        <h:link outcome="/app/public/wollongong/index.xhtml" value="Wollongong"/>
+    </ui:define>
+
+    <ui:define name="Link to create a Topic">
+        <h:link outcome="createTopic.xhtml" value="Create a Topic" rendered="#{loginBean.isStudent()}"/>
+    </ui:define>
+
+    <ui:define name="Link to the FAQ page">
+        <h:link outcome="/app/public/home.xhtml" value="FAQ"/>
+    </ui:define>
+
+    <ui:define name="Name of the city">
+        This is <strong>Wollongong</strong>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="container">
+            <div class="col-sm-8 blog-main">
+                <!-- For each topic of the city -->
+                <ui:repeat value="#{wollongongController.listTopics}" var="topic">
+
+                    <div class="blog-post">
+                        <h2 class="blog-post-title" >#{topic.title}</h2>
+                        <p class="blog-post-meta" style="color: #777">Posted on #{topic.datePosted} by <strong style="color: royalblue">#{topic.authorName} #{topic.authorFirstname}</strong> </p>
+
+                        <h:outputText value="#{topic.content}" escape="false" />
+
+                    </div>
+
+                </ui:repeat>
+            </div> 
+        </div>
+    </ui:define>
+
+</ui:composition>

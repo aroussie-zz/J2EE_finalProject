@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../templates/indexTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="title">
+        Update my profil
+    </ui:define>
+
+    <ui:define name="content">
+        <h:body>
+            <div class="container">
+                <h3>Personal information</h3>
+                <h:form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <h:outputLabel for="name" class="col-lg-3 control-label">Last Name</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="name" value="#{studentController.student.name}">
+                            </h:outputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="firstName" class="col-lg-3 control-label">First Name</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="firstName" value="#{studentController.student.firstName}">
+                            </h:outputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="mail" class="col-lg-3 control-label">Email</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:outputText class="form-control" id="mail" value="#{studentController.student.mail}">
+                            </h:outputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="city" class="col-lg-3 control-label" >City of studies</h:outputLabel>
+                        <div class="col-lg-8" >
+                            <h:outputText class="form-control" id="city" value="#{studentController.student.city.name}"/>
+                        </div>
+                    </div>  
+
+                    <div class="form-group">
+                        <h:outputLabel for="graduate" class="col-lg-3 control-label">Graduate</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:inputText class="form-control" id="graduate" value="#{studentController.student.graduate}">
+                            </h:inputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="countryOfWork" class="col-lg-3 control-label" >Country of Work</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:inputText class="form-control" id="countryOfWork" value="#{studentController.student.countryOfWork}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="job" class="col-lg-3 control-label" >Job</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:inputText class="form-control" id="job" value="#{studentController.student.job}" />
+                        </div>
+                    </div>  
+
+                    <div class="form-group">
+                        <h:outputLabel for="company" class="col-lg-3 control-label" >Company</h:outputLabel>
+                        <div class="col-lg-8">
+                            <h:inputText class="form-control" id="company" value="#{studentController.student.company}"/>
+                        </div>
+                    </div> 
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <h:commandButton  class="btn btn-primary" value="Update" action="#{studentController.updateProfil()}">
+                                <f:param name="username" value="#{studentController.student.user.login}"/>
+                            </h:commandButton>
+                            <h:link outcome="/app/public/home.xhtml" value="Cancel" class="btn btn-default" type="button" />
+                        </div>
+                    </div>                 
+                </h:form>
+            </div>
+        </h:body>
+    </ui:define>
+
+</ui:composition>

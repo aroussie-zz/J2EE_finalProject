@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../templates/indexTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
+
+    <ui:define name="title">
+        Find a visitor
+    </ui:define>
+
+    <ui:define name="content">
+        <h:head>
+            <link type="text/css" rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />        
+        </h:head>
+        <h:body>
+            <div class="container" style="margin-top: 2%;">
+                <h:form id="form">
+
+                    <p:dataTable class="table table-hover table-striped" value="#{lazyView.lazyModelVisitor}" var="visitor" 
+                                 emptyMessage="No visitor found with given criteria" paginator="true" rows="5" 
+                                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                 rowsPerPageTemplate="5,10,15" lazy="true">
+
+
+                        <p:column headerText="name" sortBy="#{visitor.name}" filterBy="#{visitor.name}">
+                            <h:outputText value="#{visitor.name}" />
+                        </p:column>
+                        <p:column headerText="firstName" sortBy="#{visitor.firstName}" filterBy="#{visitor.firstName}">
+                            <h:outputText value="#{visitor.firstName}" />
+                        </p:column>
+                        <p:column headerText="mail" sortBy="#{visitor.mail}" filterBy="#{visitor.mail}">
+                            <h:outputText value="#{visitor.mail}" />
+                        </p:column>
+
+
+                    </p:dataTable>
+
+                </h:form>  
+            </div>
+        </h:body>
+    </ui:define>
+
+
+</ui:composition>
